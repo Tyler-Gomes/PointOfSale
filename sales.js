@@ -1,24 +1,23 @@
 var runningTotal = 0.0;
-var dollars
 var newItem;
-var Dollars;
 
-function addItem(){
+function addItem() {
  newItem = document.getElementById("price").value;
 if (isNaN(newItem)){
     window.alert("Enter price as a number");
   }
-  //IF newItem is not a number
-  // THEN show an alert: "Enter price as a number"
-  //OTHERWISE,
+
 else {
   newItem = Number(newItem);
   runningTotal = runningTotal + newItem;
-  console.log(runningTotal);
-  }
+  var dollars = asCurrency(runningTotal);
+  document.getElementById("subtotal").innerHTML = (dollars);
+  console.log(dollars);
 
-
-
+}
+  //IF newItem is not a number
+  // THEN show an alert: "Enter price as a number"
+  //OTHERWISE,
   // update newItem to its value cast as a number
   // update runningTotal to be its value plus newItem
   // create a variable called dollars
@@ -29,10 +28,10 @@ else {
 }
 
 //takes a number and gives a string with the number displayed as USD currency
-function asCurrency(runningTotal)
-{
-  return "$" + runningTotal.val.toFixed(2);
+function asCurrency(val) {
+    return "$" + val.toFixed(2);
 }
+
 
 //courtesy of w3schools, from: http://www.w3schools.com/js/js_cookies.asp
 function setCookie(cname, cvalue, exdays) {
